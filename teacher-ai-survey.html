@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAY AI Teacher Day · 教师 AI 教育技术测评(前测 Form A)</title><style>
+:root{--acc:#1F4E79;--bg:#f6f7f9;--card:#fff;--txt:#1a1a1a;--mut:#666;--ok:#1b7f3b;--warn:#b35c00;--err:#b00020}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);font-size:17px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:12px 14px 80px}
+header{background:var(--acc);color:#fff;padding:14px 16px}header h1{font-size:19px;margin:0 0 2px}header p{margin:0;font-size:13px;opacity:.9}
+.card{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+h2{font-size:17px;color:var(--acc);margin:0 0 6px}h3{font-size:15px;margin:14px 0 4px}
+.mut{color:var(--mut);font-size:14px}
+label.f{display:block;margin:8px 0 2px;font-size:14px;color:var(--mut)}
+input[type=text],textarea,select{width:100%;font-size:17px;padding:10px;border:1px solid #cfd4da;border-radius:8px;background:#fff}
+textarea{min-height:110px}
+.q{padding:10px 0;border-top:1px solid #eee}.q:first-of-type{border-top:0}
+.stem{font-weight:600;margin-bottom:6px}.stem .n{display:inline-block;min-width:1.8em;color:var(--acc)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.opt{display:flex;align-items:center;gap:8px;padding:10px 10px;border:1px solid #d9dee4;border-radius:8px;background:#fafbfc;cursor:pointer;min-height:44px}
+.opt input{width:22px;height:22px;margin:0;flex:none}.opt.sel{border-color:var(--acc);background:#e9f0f8}
+.likert{display:flex;gap:6px;flex-wrap:wrap}.likert .opt{flex:1;justify-content:center;min-width:48px}
+.yn{display:flex;gap:8px}.yn .opt{flex:1;justify-content:center}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:10px;padding:14px 18px;font-size:17px;font-weight:600;cursor:pointer;width:100%;text-align:center;text-decoration:none}
+.btn.sec{background:#fff;color:var(--acc);border:2px solid var(--acc)}.btn.ok{background:var(--ok)}.btn.wa{background:#25D366}
+.btn[disabled]{opacity:.5}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #ddd;padding:8px 14px;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.bar b{color:var(--acc)}
+.miss{outline:2px solid var(--err);border-radius:8px}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;background:#f1f3f5;padding:10px;border-radius:8px;max-height:140px;overflow:auto}
+.status{padding:10px 12px;border-radius:8px;margin:8px 0;font-size:15px}.status.ok{background:#e6f4ea;color:var(--ok)}.status.warn{background:#fff3e0;color:var(--warn)}.status.err{background:#fdecee;color:var(--err)}
+.hide{display:none}
+.passage{background:#f7f9fb;border-left:4px solid var(--acc);padding:10px 12px;margin:8px 0;font-size:17px;line-height:1.8}
+.inline{display:inline-block;width:auto;min-width:70px;padding:6px 8px;font-size:17px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>SAY AI Teacher Day · 教师 AI 教育技术测评(前测 Form A)</h1><p>Teacher AI-in-Education Assessment · Pre-test · Parts 1–4 · v1 (2026-09)</p></header>
+<div class="wrap">
+<div class="card"><h2>About this survey / 说明</h2>
+<ul class="mut" style="padding-left:18px">
+<li>This survey helps SAY design the AI Teacher Day for you. It is not a test of you as a teacher; there are no right answers in Parts 1, 3 and 4. Results are seen only by you and the SAY research team. 这份问卷帮助 SAY 为你设计 AI 教师日,不是考核;第 1、3、4 部分没有对错。结果只对你本人和研究组可见。</li>
+<li>Time: about 25 minutes. Part 5 (the 40-minute hands-on task) is done separately — instructions at the end. 约 25 分钟;第 5 部分实操任务另行进行。</li>
+<li>Teacher code only, no names. 只填教师编号。</li>
+</ul></div>
+<div class="card"><h2>身份信息 Identification</h2>
+<p class="mut">只填教师编号(学校缩写+序号,如 KDC-03),不写姓名。Teacher code only — no names.</p>
+<div class="row">
+<div data-req="teacher_code"><label class="f">Teacher code 教师编号 *</label><input type="text" name="teacher_code" autocomplete="off" placeholder="e.g. KDC-03"></div>
+<div data-req="school"><label class="f">School 学校 *</label><input type="text" name="school" placeholder="School name"></div>
+<div><label class="f">Grades taught 任教年级</label><input type="text" name="grades" placeholder="e.g. F2, F4"></div>
+</div></div>
+<div class="card"><h2>Part 1 · Digital Skills Checklist 数字技能清单</h2><p class="mut">Can you… (Yes / No). Be honest — this decides what we teach. 请如实回答。</p>
+<div class="q" data-req="s1"><div class="stem"><span class="n">1.</span>Turn on a smartphone and connect to Wi-Fi or mobile data</div><div class="yn"><label class="opt"><input type="radio" name="s1" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s1" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s2"><div class="stem"><span class="n">2.</span>Type Chinese characters on your phone (pinyin input)</div><div class="yn"><label class="opt"><input type="radio" name="s2" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s2" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s3"><div class="stem"><span class="n">3.</span>Take a clear photo of a page and share it on WhatsApp</div><div class="yn"><label class="opt"><input type="radio" name="s3" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s3" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s4"><div class="stem"><span class="n">4.</span>Create, name and find a document or file on your phone/computer</div><div class="yn"><label class="opt"><input type="radio" name="s4" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s4" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s5"><div class="stem"><span class="n">5.</span>Copy text from one app and paste it into another</div><div class="yn"><label class="opt"><input type="radio" name="s5" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s5" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s6"><div class="stem"><span class="n">6.</span>Open a link and sign in to an account with a password</div><div class="yn"><label class="opt"><input type="radio" name="s6" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s6" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s7"><div class="stem"><span class="n">7.</span>Use at least one AI chat tool (e.g., ChatGPT, DeepSeek, Gemini, Copilot)</div><div class="yn"><label class="opt"><input type="radio" name="s7" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s7" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s8"><div class="stem"><span class="n">8.</span>Write a prompt that says: role, task, level, format, length</div><div class="yn"><label class="opt"><input type="radio" name="s8" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s8" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s9"><div class="stem"><span class="n">9.</span>Ask the AI to change its answer (make it easier / shorter / in a table)</div><div class="yn"><label class="opt"><input type="radio" name="s9" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s9" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s10"><div class="stem"><span class="n">10.</span>Check an AI answer against a textbook or dictionary before using it</div><div class="yn"><label class="opt"><input type="radio" name="s10" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s10" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s11"><div class="stem"><span class="n">11.</span>Convert AI text into a printable worksheet (Word/PDF/photo)</div><div class="yn"><label class="opt"><input type="radio" name="s11" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s11" value="No"><span>No</span></label></div></div>
+<div class="q" data-req="s12"><div class="stem"><span class="n">12.</span>Keep student names out of anything you type into an AI tool</div><div class="yn"><label class="opt"><input type="radio" name="s12" value="Yes"><span>Yes</span></label><label class="opt"><input type="radio" name="s12" value="No"><span>No</span></label></div></div>
+<div class="q"><label class="f">If Yes to #7 — which AI tool(s)? 用过哪些 AI 工具</label><input type="text" name="s7_tools" placeholder="e.g. ChatGPT, DeepSeek"></div>
+</div><div class="card"><h2>Part 2 · AI Knowledge &amp; Judgement(12 items, Form A)</h2><p class="mut">Choose ONE answer. 单选。</p>
+<div class="q" data-req="k1"><div class="stem"><span class="n">1.</span>An AI chat tool (like ChatGPT) mainly works by…</div><div class="opts"><label class="opt"><input type="radio" name="k1" value="A"><span><b>A.</b> Searching a Chinese dictionary and copying the entry</span></label><label class="opt"><input type="radio" name="k1" value="B"><span><b>B.</b> Predicting likely text from patterns in its training data</span></label><label class="opt"><input type="radio" name="k1" value="C"><span><b>C.</b> Asking a human teacher in China</span></label><label class="opt"><input type="radio" name="k1" value="D"><span><b>D.</b> Translating everything from English word by word</span></label></div></div>
+<div class="q" data-req="k2"><div class="stem"><span class="n">2.</span>The AI gives you a Chinese sentence with a wrong tone mark. The best response is…</div><div class="opts"><label class="opt"><input type="radio" name="k2" value="A"><span><b>A.</b> Use it — AI is usually right</span></label><label class="opt"><input type="radio" name="k2" value="B"><span><b>B.</b> Delete the whole worksheet</span></label><label class="opt"><input type="radio" name="k2" value="C"><span><b>C.</b> Correct it yourself and check the word in a dictionary/textbook</span></label><label class="opt"><input type="radio" name="k2" value="D"><span><b>D.</b> Ask students to find the mistake in the exam</span></label></div></div>
+<div class="q" data-req="k3"><div class="stem"><span class="n">3.</span>Which prompt will give the most useful practice set?</div><div class="opts"><label class="opt"><input type="radio" name="k3" value="A"><span><b>A.</b> "Give me Chinese exercises."</span></label><label class="opt"><input type="radio" name="k3" value="B"><span><b>B.</b> "10 HSK2-level multiple-choice items on telling time, for Form 4 Zanzibar students, with answer key, in a table."</span></label><label class="opt"><input type="radio" name="k3" value="C"><span><b>C.</b> "Make a test."</span></label><label class="opt"><input type="radio" name="k3" value="D"><span><b>D.</b> "Write about time."</span></label></div></div>
+<div class="q" data-req="k4"><div class="stem"><span class="n">4.</span>"Hallucination" in AI means…</div><div class="opts"><label class="opt"><input type="radio" name="k4" value="A"><span><b>A.</b> The AI refuses to answer</span></label><label class="opt"><input type="radio" name="k4" value="B"><span><b>B.</b> The AI produces confident but false or invented content</span></label><label class="opt"><input type="radio" name="k4" value="C"><span><b>C.</b> The AI is too slow</span></label><label class="opt"><input type="radio" name="k4" value="D"><span><b>D.</b> The AI only answers in English</span></label></div></div>
+<div class="q" data-req="k5"><div class="stem"><span class="n">5.</span>Before giving AI-made material to students, a teacher should ALWAYS…</div><div class="opts"><label class="opt"><input type="radio" name="k5" value="A"><span><b>A.</b> Print it in colour</span></label><label class="opt"><input type="radio" name="k5" value="B"><span><b>B.</b> Check it against the syllabus and a reliable reference</span></label><label class="opt"><input type="radio" name="k5" value="C"><span><b>C.</b> Add the AI tool's name on top</span></label><label class="opt"><input type="radio" name="k5" value="D"><span><b>D.</b> Translate it to Swahili</span></label></div></div>
+<div class="q" data-req="k6"><div class="stem"><span class="n">6.</span>Which information should NOT be typed into a public AI tool?</div><div class="opts"><label class="opt"><input type="radio" name="k6" value="A"><span><b>A.</b> The topic "numbers 1–100"</span></label><label class="opt"><input type="radio" name="k6" value="B"><span><b>B.</b> A student's full name and exam score</span></label><label class="opt"><input type="radio" name="k6" value="C"><span><b>C.</b> The word 你好</span></label><label class="opt"><input type="radio" name="k6" value="D"><span><b>D.</b> The class level Form 4</span></label></div></div>
+<div class="q" data-req="k7"><div class="stem"><span class="n">7.</span>If the AI's exercise is too hard for your students, the quickest fix is…</div><div class="opts"><label class="opt"><input type="radio" name="k7" value="A"><span><b>A.</b> Give it anyway</span></label><label class="opt"><input type="radio" name="k7" value="B"><span><b>B.</b> Ask the AI to rewrite at HSK1–2 level with simpler words</span></label><label class="opt"><input type="radio" name="k7" value="C"><span><b>C.</b> Skip the topic</span></label><label class="opt"><input type="radio" name="k7" value="D"><span><b>D.</b> Ask students to use AI themselves</span></label></div></div>
+<div class="q" data-req="k8"><div class="stem"><span class="n">8.</span>Which is a good use of AI for exam preparation?</div><div class="opts"><label class="opt"><input type="radio" name="k8" value="A"><span><b>A.</b> Letting AI mark the national exam</span></label><label class="opt"><input type="radio" name="k8" value="B"><span><b>B.</b> Generating varied practice items on a syllabus topic, then reviewing them</span></label><label class="opt"><input type="radio" name="k8" value="C"><span><b>C.</b> Replacing the textbook completely</span></label><label class="opt"><input type="radio" name="k8" value="D"><span><b>D.</b> Asking AI what will be on the exam</span></label></div></div>
+<div class="q" data-req="k9"><div class="stem"><span class="n">9.</span>The AI writes a reading passage about "snow in Zanzibar in December". This is a problem of…</div><div class="opts"><label class="opt"><input type="radio" name="k9" value="A"><span><b>A.</b> Grammar</span></label><label class="opt"><input type="radio" name="k9" value="B"><span><b>B.</b> Cultural/local appropriateness</span></label><label class="opt"><input type="radio" name="k9" value="C"><span><b>C.</b> Tone marks</span></label><label class="opt"><input type="radio" name="k9" value="D"><span><b>D.</b> Length</span></label></div></div>
+<div class="q" data-req="k10"><div class="stem"><span class="n">10.</span>To make items match the CSEE format, you should…</div><div class="opts"><label class="opt"><input type="radio" name="k10" value="A"><span><b>A.</b> Tell the AI the exam format (sections, item types) in the prompt</span></label><label class="opt"><input type="radio" name="k10" value="B"><span><b>B.</b> Hope the AI knows CSEE</span></label><label class="opt"><input type="radio" name="k10" value="C"><span><b>C.</b> Only use HSK items</span></label><label class="opt"><input type="radio" name="k10" value="D"><span><b>D.</b> Use no format</span></label></div></div>
+<div class="q" data-req="k11"><div class="stem"><span class="n">11.</span>A colleague says: "AI wrote it, so we don't need to check." This is…</div><div class="opts"><label class="opt"><input type="radio" name="k11" value="A"><span><b>A.</b> Correct</span></label><label class="opt"><input type="radio" name="k11" value="B"><span><b>B.</b> Wrong — the teacher stays responsible for what students receive</span></label><label class="opt"><input type="radio" name="k11" value="C"><span><b>C.</b> Correct only for Form 4</span></label><label class="opt"><input type="radio" name="k11" value="D"><span><b>D.</b> Correct if the tool is paid</span></label></div></div>
+<div class="q" data-req="k12"><div class="stem"><span class="n">12.</span>The best way to know whether your AI-made practice helped students is…</div><div class="opts"><label class="opt"><input type="radio" name="k12" value="A"><span><b>A.</b> Students said they liked it</span></label><label class="opt"><input type="radio" name="k12" value="B"><span><b>B.</b> Compare a short quiz before and after, on the same topic</span></label><label class="opt"><input type="radio" name="k12" value="C"><span><b>C.</b> The AI says it is good</span></label><label class="opt"><input type="radio" name="k12" value="D"><span><b>D.</b> The worksheet looks professional</span></label></div></div>
+</div><div class="card"><h2>Part 3 · Self-efficacy 自效能</h2><p class="mut">1 = Strongly disagree · 2 = Disagree · 3 = Neutral · 4 = Agree · 5 = Strongly agree</p>
+<div class="q" data-req="e1"><div class="stem"><span class="n">1.</span>I can write a clear prompt that gets the AI to produce what I need.</div><div class="likert"><label class="opt"><input type="radio" name="e1" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e1" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e1" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e1" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e1" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e2"><div class="stem"><span class="n">2.</span>I can produce a one-page revision outline for my class with AI in under 20 minutes.</div><div class="likert"><label class="opt"><input type="radio" name="e2" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e2" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e2" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e2" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e2" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e3"><div class="stem"><span class="n">3.</span>I can produce a 10-item practice set with an answer key with AI.</div><div class="likert"><label class="opt"><input type="radio" name="e3" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e3" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e3" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e3" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e3" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e4"><div class="stem"><span class="n">4.</span>I can find and fix errors in AI-generated Chinese (characters, pinyin, tones, grammar).</div><div class="likert"><label class="opt"><input type="radio" name="e4" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e4" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e4" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e4" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e4" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e5"><div class="stem"><span class="n">5.</span>I can adapt AI material to my students' level.</div><div class="likert"><label class="opt"><input type="radio" name="e5" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e5" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e5" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e5" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e5" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e6"><div class="stem"><span class="n">6.</span>I can judge whether AI material fits the Zanzibar syllabus and exam.</div><div class="likert"><label class="opt"><input type="radio" name="e6" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e6" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e6" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e6" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e6" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e7"><div class="stem"><span class="n">7.</span>I can use AI on my phone without help.</div><div class="likert"><label class="opt"><input type="radio" name="e7" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e7" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e7" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e7" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e7" value="5"><span>5</span></label></div></div>
+<div class="q" data-req="e8"><div class="stem"><span class="n">8.</span>I feel confident teaching a lesson built on materials I made with AI.</div><div class="likert"><label class="opt"><input type="radio" name="e8" value="1"><span>1</span></label><label class="opt"><input type="radio" name="e8" value="2"><span>2</span></label><label class="opt"><input type="radio" name="e8" value="3"><span>3</span></label><label class="opt"><input type="radio" name="e8" value="4"><span>4</span></label><label class="opt"><input type="radio" name="e8" value="5"><span>5</span></label></div></div>
+</div><div class="card"><h2>Part 4 · Current Use 使用现状</h2>
+<div class="q" data-req="u1"><div class="stem"><span class="n">1.</span>In the last month, how many times did you use an AI tool for teaching?</div><div class="likert"><label class="opt"><input type="radio" name="u1" value="0"><span>0</span></label><label class="opt"><input type="radio" name="u1" value="1–2"><span>1–2</span></label><label class="opt"><input type="radio" name="u1" value="3–5"><span>3–5</span></label><label class="opt"><input type="radio" name="u1" value="6–10"><span>6–10</span></label><label class="opt"><input type="radio" name="u1" value=">10"><span>>10</span></label></div></div>
+<div class="q" data-req="u2"><div class="stem"><span class="n">2.</span>Which device do you mainly use?</div><div class="likert"><label class="opt"><input type="radio" name="u2" value="phone only"><span>phone only</span></label><label class="opt"><input type="radio" name="u2" value="phone + computer"><span>phone + computer</span></label><label class="opt"><input type="radio" name="u2" value="computer only"><span>computer only</span></label><label class="opt"><input type="radio" name="u2" value="none"><span>none</span></label></div></div>
+<div class="q" data-req="u3"><div class="stem"><span class="n">3.</span>Which tools have you used? (tick all) 用过哪些工具</div><div class="opts"><label class="opt"><input type="checkbox" name="u3" value="ChatGPT"><span>ChatGPT</span></label><label class="opt"><input type="checkbox" name="u3" value="DeepSeek"><span>DeepSeek</span></label><label class="opt"><input type="checkbox" name="u3" value="Gemini"><span>Gemini</span></label><label class="opt"><input type="checkbox" name="u3" value="Copilot"><span>Copilot</span></label><label class="opt"><input type="checkbox" name="u3" value="Other"><span>Other</span></label><label class="opt"><input type="checkbox" name="u3" value="None"><span>None</span></label></div><input type="text" name="u3_other" placeholder="Other: which?" style="margin-top:6px"></div>
+<div class="q" data-req="u4"><div class="stem"><span class="n">4.</span>What have you made with AI so far? (tick all) 用 AI 做过什么</div><div class="opts"><label class="opt"><input type="checkbox" name="u4" value="lesson plan"><span>lesson plan</span></label><label class="opt"><input type="checkbox" name="u4" value="exercises"><span>exercises</span></label><label class="opt"><input type="checkbox" name="u4" value="reading text"><span>reading text</span></label><label class="opt"><input type="checkbox" name="u4" value="explanations"><span>explanations</span></label><label class="opt"><input type="checkbox" name="u4" value="nothing yet"><span>nothing yet</span></label></div></div>
+<div class="q" data-req="u5"><div class="stem"><span class="n">5.</span>Biggest difficulty so far (one line). 目前最大的困难(一句话)</div><textarea name="u5" style="min-height:68px" placeholder=""></textarea></div>
+</div><div class="card"><h2>Part 5 · Performance Task 实操任务(done separately, 40 min)</h2>
+<p>After submitting this survey, the facilitator will start the 40-minute task: using any AI tool on your phone or computer, produce for a Form 4 class (1) a ONE-page revision outline and (2) a TEN-item practice set with answer key, on the unit <b>Numbers, time and dates(数字、时间与日期)</b> — HSK1–2 level; include at least one item on 几点/什么时候 and one on dates. You may edit the AI's output as much as you like.</p>
+<p><b>Submit</b> as a photo / file / pasted text on WhatsApp to SAY, with your <b>teacher code only</b> in the message. We score the material, not your Chinese.</p></div>
+<div class="card">
+  <button class="btn" id="btnSubmit" onclick="submit()">提交 Submit</button>
+  <p style="margin:10px 0 0"><button class="btn sec" onclick="clearAll()" style="font-size:14px;padding:8px">🧹 清空重填 / 下一位教师 Clear &amp; start over (next teacher)</button></p>
+  <div id="status" class="status hide"></div>
+  <div id="result" class="hide">
+    <h3>你的答案码 Your answer code</h3>
+    <p class="mut">如果上面显示上传成功,这一步是备份;如果没有网络,这一步就是提交方式。请把答案码发给 SAY。<br>If upload succeeded this is a backup; if there is no internet, this IS how you submit. Send the code to SAY.</p>
+    <div class="code" id="code"></div>
+    <p><a class="btn wa" id="wa" target="_blank" rel="noopener">📲 发到 WhatsApp · Send by WhatsApp</a></p>
+    <p><button class="btn sec" onclick="copyCode()">复制答案码 Copy code</button></p>
+    <p><a class="btn sec" id="dl">下载答案文件 Download file (.json)</a></p>
+  </div>
+</div>
+<p class="mut" style="text-align:center">SAY Foundation · SAY AI Lab · For research and training use only. 仅供研究与培训使用。答案不公布,不排名。</p>
+</div>
+<div class="bar"><span id="prog"></span><span id="timer"></span></div>
+<script>
+const FORM_ID="T0_AI_FormA", FORM_VERSION="v1-2026-09";
+// ====== 配置(李老师填)======
+const ENDPOINT="";            // Google Apps Script 网页应用地址,形如 https://script.google.com/macros/s/XXXX/exec ;留空则只用 WhatsApp/答案码
+const WHATSAPP_NUMBER="";     // SAY 收答案的 WhatsApp 号,国际格式不带 + ,如 255777123456 ;留空则由教师自选联系人
+// ==============================
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const KEY=FORM_ID+':draft';
+let startedAt = sessionStorage.getItem(FORM_ID+':start') || new Date().toISOString();
+sessionStorage.setItem(FORM_ID+':start', startedAt);
+function collect(){
+  const a={};
+  $$('input[name],textarea[name],select[name]').forEach(el=>{
+    if(el.type==='radio'){ if(el.checked) a[el.name]=el.value; else if(!(el.name in a)) a[el.name]=a[el.name]||''; }
+    else if(el.type==='checkbox'){ a[el.name]=(a[el.name]||[]); if(el.checked) a[el.name].push(el.value); }
+    else a[el.name]=el.value.trim();
+  });
+  Object.keys(a).forEach(k=>{ if(Array.isArray(a[k])) a[k]=a[k].join('|'); });
+  return a;
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(collect())); }catch(e){} refreshBar(); }
+function restore(){
+  let d={}; try{ d=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  $$('input[name],textarea[name],select[name]').forEach(el=>{
+    const v=d[el.name]; if(v===undefined) return;
+    if(el.type==='radio'){ el.checked=(el.value===v); }
+    else if(el.type==='checkbox'){ el.checked=String(v).split('|').includes(el.value); }
+    else el.value=v;
+  });
+  paint();
+}
+function paint(){ $$('.opt').forEach(o=>{const i=o.querySelector('input'); o.classList.toggle('sel', i&&i.checked);}); }
+function refreshBar(){
+  const req=$$('[data-req]'); let done=0;
+  req.forEach(g=>{ if(isDone(g)) done++; });
+  $('#prog').innerHTML=`已答 <b>${done}</b> / ${req.length}`;
+}
+function isDone(g){
+  const name=g.dataset.req;
+  const els=$$(`[name="${name}"]`);
+  if(!els.length) return false;
+  if(els[0].type==='radio'||els[0].type==='checkbox') return els.some(e=>e.checked);
+  return els[0].value.trim().length>0;
+}
+function validate(){
+  let first=null; $$('[data-req]').forEach(g=>{ const ok=isDone(g); g.classList.toggle('miss',!ok); if(!ok&&!first) first=g; });
+  if(first){ first.scrollIntoView({behavior:'smooth',block:'center'}); return false; } return true;
+}
+function b64(str){ return btoa(String.fromCharCode(...new TextEncoder().encode(str))); }
+function buildPayload(){
+  const a=collect(); const now=new Date();
+  const p={form:FORM_ID, version:FORM_VERSION, teacher_code:a.teacher_code||'', school:a.school||'', grades:a.grades||'',
+    started_at:startedAt, submitted_at:now.toISOString(), duration_min:Math.round((now-new Date(startedAt))/60000),
+    answers:a, ua:navigator.userAgent.slice(0,80)};
+  if(typeof score==='function') p.scores=score(a);
+  return p;
+}
+async function submit(){
+  if(!validate()){ setStatus('warn','还有必答题未完成(红框处)。Some required items are missing (red boxes).'); return; }
+  const p=buildPayload(); const json=JSON.stringify(p); const code='SAY1|'+b64(json);
+  $('#code').textContent=code; $('#result').classList.remove('hide'); $('#btnSubmit').disabled=true;
+  const fname=`${FORM_ID}_${(p.teacher_code||'nocode').replace(/[^A-Za-z0-9_-]/g,'')}_${p.submitted_at.slice(0,16).replace(/[:T]/g,'-')}.json`;
+  const blob=new Blob([json],{type:'application/json'}); $('#dl').href=URL.createObjectURL(blob); $('#dl').download=fname;
+  const waText=encodeURIComponent(`${FORM_ID} ${p.teacher_code}\n${code}`);
+  $('#wa').href=(WHATSAPP_NUMBER?`https://wa.me/${WHATSAPP_NUMBER}?text=`:`https://wa.me/?text=`)+waText;
+  try{ localStorage.setItem(FORM_ID+':submitted:'+p.teacher_code, json); }catch(e){}
+  if(ENDPOINT){
+    setStatus('warn','正在上传… Uploading…');
+    try{
+      await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:json});
+      setStatus('ok','✅ 已上传到 SAY 表格。为保险,请再点下面绿色按钮把答案码发到 WhatsApp。Uploaded. As a backup, also send the code by WhatsApp.');
+    }catch(e){
+      setStatus('err','⚠️ 网络上传失败(可能没有网络)。请用下面的 WhatsApp 按钮或复制答案码发给 SAY。Upload failed — please send the code by WhatsApp.');
+    }
+  } else {
+    setStatus('warn','本页未配置在线收集地址。请点绿色按钮把答案码发到 WhatsApp,或复制后发给 SAY。Please send the code by WhatsApp.');
+  }
+  $('#result').scrollIntoView({behavior:'smooth'});
+}
+function clearAll(){ if(!confirm('清空这台设备上的答案,重新开始?Clear all answers on this device and start over?')) return; try{ localStorage.removeItem(KEY); sessionStorage.removeItem(FORM_ID+':start'); }catch(e){} location.reload(); }
+function setStatus(k,t){ const s=$('#status'); s.className='status '+k; s.textContent=t; }
+function copyCode(){ navigator.clipboard.writeText($('#code').textContent).then(()=>setStatus('ok','已复制。Copied — paste it into WhatsApp to SAY.')).catch(()=>setStatus('warn','请长按答案码手动复制。Long-press the code to copy.')); }
+document.addEventListener('change',e=>{ paint(); save(); });
+document.addEventListener('input',e=>{ save(); });
+window.addEventListener('load',()=>{ restore(); refreshBar(); if(typeof startTimer==='function') startTimer(); });
+
+
+
+function score(a){ let se=0,n=0; for(let i=1;i<=8;i++){ const v=parseInt(a['e'+i]); if(v){se+=v;n++;} } let yes=0; for(let i=1;i<=12;i++) if(a['s'+i]==='Yes') yes++; return {selfefficacy_mean:n?+(se/n).toFixed(2):null, skills_yes_12:yes}; }
+
+</script></body></html>

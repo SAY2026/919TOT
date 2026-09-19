@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAY AI for Chinese Teacher · 汉语教师水平自测(T0)</title><style>
+:root{--acc:#1F4E79;--bg:#f6f7f9;--card:#fff;--txt:#1a1a1a;--mut:#666;--ok:#1b7f3b;--warn:#b35c00;--err:#b00020}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);font-size:17px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:12px 14px 80px}
+header{background:var(--acc);color:#fff;padding:14px 16px}header h1{font-size:19px;margin:0 0 2px}header p{margin:0;font-size:13px;opacity:.9}
+.card{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+h2{font-size:17px;color:var(--acc);margin:0 0 6px}h3{font-size:15px;margin:14px 0 4px}
+.mut{color:var(--mut);font-size:14px}
+label.f{display:block;margin:8px 0 2px;font-size:14px;color:var(--mut)}
+input[type=text],textarea,select{width:100%;font-size:17px;padding:10px;border:1px solid #cfd4da;border-radius:8px;background:#fff}
+textarea{min-height:110px}
+.q{padding:10px 0;border-top:1px solid #eee}.q:first-of-type{border-top:0}
+.stem{font-weight:600;margin-bottom:6px}.stem .n{display:inline-block;min-width:1.8em;color:var(--acc)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.opt{display:flex;align-items:center;gap:8px;padding:10px 10px;border:1px solid #d9dee4;border-radius:8px;background:#fafbfc;cursor:pointer;min-height:44px}
+.opt input{width:22px;height:22px;margin:0;flex:none}.opt.sel{border-color:var(--acc);background:#e9f0f8}
+.likert{display:flex;gap:6px;flex-wrap:wrap}.likert .opt{flex:1;justify-content:center;min-width:48px}
+.yn{display:flex;gap:8px}.yn .opt{flex:1;justify-content:center}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:10px;padding:14px 18px;font-size:17px;font-weight:600;cursor:pointer;width:100%;text-align:center;text-decoration:none}
+.btn.sec{background:#fff;color:var(--acc);border:2px solid var(--acc)}.btn.ok{background:var(--ok)}.btn.wa{background:#25D366}
+.btn[disabled]{opacity:.5}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #ddd;padding:8px 14px;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.bar b{color:var(--acc)}
+.miss{outline:2px solid var(--err);border-radius:8px}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;background:#f1f3f5;padding:10px;border-radius:8px;max-height:140px;overflow:auto}
+.status{padding:10px 12px;border-radius:8px;margin:8px 0;font-size:15px}.status.ok{background:#e6f4ea;color:var(--ok)}.status.warn{background:#fff3e0;color:var(--warn)}.status.err{background:#fdecee;color:var(--err)}
+.hide{display:none}
+.passage{background:#f7f9fb;border-left:4px solid var(--acc);padding:10px 12px;margin:8px 0;font-size:17px;line-height:1.8}
+.inline{display:inline-block;width:auto;min-width:70px;padding:6px 8px;font-size:17px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>SAY AI for Chinese Teacher · 汉语教师水平自测(T0)</h1><p>Teacher Chinese Proficiency Self-Assessment · 对标 HSK 2–3 · 60 min · 100 pts · v1 (2026-09)</p></header>
+<div class="wrap">
+<div class="card"><h2>Instructions / 说明</h2>
+<ul class="mut" style="padding-left:18px">
+<li>This is NOT an exam of you as a teacher. It tells SAY which Chinese-language areas the AI resource packs should reinforce. Results are shared only with you and the SAY research team. 这不是对老师的考核,而是为了让 SAY 的 AI 资源包对准你和你的学生最需要加强的地方。结果只对你本人和 SAY 研究团队可见。</li>
+<li>Time 时间:60 minutes. Parts 1–4 (35 min) · Part 5 writing (12 min) · Part 6 teaching (13 min). 页面底部有计时器。</li>
+<li>Part 5: if you cannot type a character, type pinyin — no marks are lost. Part 6 may be answered in English. 第五部分不会打的字可以写拼音,不扣分;第六部分可用英文作答。</li>
+<li>No dictionaries, no AI tools, no other apps during the test. 测试中不使用词典、AI 或其他应用。</li>
+<li>答案会自动保存在这台手机上;如果页面刷新,答案不会丢。最后点"提交"。Answers auto-save on this device; press Submit at the end.</li>
+</ul></div>
+<div class="card"><h2>身份信息 Identification</h2>
+<p class="mut">只填教师编号(学校缩写+序号,如 KDC-03),不写姓名。Teacher code only — no names.</p>
+<div class="row">
+<div data-req="teacher_code"><label class="f">Teacher code 教师编号 *</label><input type="text" name="teacher_code" autocomplete="off" placeholder="e.g. KDC-03"></div>
+<div data-req="school"><label class="f">School 学校 *</label><input type="text" name="school" placeholder="School name"></div>
+<div><label class="f">Grades taught 任教年级</label><input type="text" name="grades" placeholder="e.g. F2, F4"></div>
+</div></div>
+<div class="card"><h2>Part 1 · Vocabulary in context 词语选择(15 × 2 = 30)</h2><p class="mut">Choose the best word for the blank. 选择最合适的词填空。</p>
+<div class="q" data-req="q1"><div class="stem"><span class="n">1.</span>我每天早上六点半______,然后洗脸、吃早饭。</div><div class="opts"><label class="opt"><input type="radio" name="q1" value="A"><span><b>A.</b> 起床</span></label><label class="opt"><input type="radio" name="q1" value="B"><span><b>B.</b> 睡觉</span></label><label class="opt"><input type="radio" name="q1" value="C"><span><b>C.</b> 下班</span></label><label class="opt"><input type="radio" name="q1" value="D"><span><b>D.</b> 回家</span></label></div></div>
+<div class="q" data-req="q2"><div class="stem"><span class="n">2.</span>这个苹果很______,我想再吃一个。</div><div class="opts"><label class="opt"><input type="radio" name="q2" value="A"><span><b>A.</b> 贵</span></label><label class="opt"><input type="radio" name="q2" value="B"><span><b>B.</b> 好吃</span></label><label class="opt"><input type="radio" name="q2" value="C"><span><b>C.</b> 冷</span></label><label class="opt"><input type="radio" name="q2" value="D"><span><b>D.</b> 慢</span></label></div></div>
+<div class="q" data-req="q3"><div class="stem"><span class="n">3.</span>今天天气不好,______了,我们不去海边了。</div><div class="opts"><label class="opt"><input type="radio" name="q3" value="A"><span><b>A.</b> 下雨</span></label><label class="opt"><input type="radio" name="q3" value="B"><span><b>B.</b> 晴天</span></label><label class="opt"><input type="radio" name="q3" value="C"><span><b>C.</b> 很热</span></label><label class="opt"><input type="radio" name="q3" value="D"><span><b>D.</b> 刮风</span></label></div></div>
+<div class="q" data-req="q4"><div class="stem"><span class="n">4.</span>请问,去学校怎么______?</div><div class="opts"><label class="opt"><input type="radio" name="q4" value="A"><span><b>A.</b> 说</span></label><label class="opt"><input type="radio" name="q4" value="B"><span><b>B.</b> 走</span></label><label class="opt"><input type="radio" name="q4" value="C"><span><b>C.</b> 看</span></label><label class="opt"><input type="radio" name="q4" value="D"><span><b>D.</b> 听</span></label></div></div>
+<div class="q" data-req="q5"><div class="stem"><span class="n">5.</span>我______了三年汉语。</div><div class="opts"><label class="opt"><input type="radio" name="q5" value="A"><span><b>A.</b> 学</span></label><label class="opt"><input type="radio" name="q5" value="B"><span><b>B.</b> 买</span></label><label class="opt"><input type="radio" name="q5" value="C"><span><b>C.</b> 玩</span></label><label class="opt"><input type="radio" name="q5" value="D"><span><b>D.</b> 卖</span></label></div></div>
+<div class="q" data-req="q6"><div class="stem"><span class="n">6.</span>他比我______两岁。</div><div class="opts"><label class="opt"><input type="radio" name="q6" value="A"><span><b>A.</b> 高</span></label><label class="opt"><input type="radio" name="q6" value="B"><span><b>B.</b> 大</span></label><label class="opt"><input type="radio" name="q6" value="C"><span><b>C.</b> 长</span></label><label class="opt"><input type="radio" name="q6" value="D"><span><b>D.</b> 多</span></label></div></div>
+<div class="q" data-req="q7"><div class="stem"><span class="n">7.</span>老师,这个字怎么______?</div><div class="opts"><label class="opt"><input type="radio" name="q7" value="A"><span><b>A.</b> 说</span></label><label class="opt"><input type="radio" name="q7" value="B"><span><b>B.</b> 读</span></label><label class="opt"><input type="radio" name="q7" value="C"><span><b>C.</b> 走</span></label><label class="opt"><input type="radio" name="q7" value="D"><span><b>D.</b> 唱</span></label></div></div>
+<div class="q" data-req="q8"><div class="stem"><span class="n">8.</span>我们______公共汽车去市场吧。</div><div class="opts"><label class="opt"><input type="radio" name="q8" value="A"><span><b>A.</b> 坐</span></label><label class="opt"><input type="radio" name="q8" value="B"><span><b>B.</b> 骑</span></label><label class="opt"><input type="radio" name="q8" value="C"><span><b>C.</b> 开</span></label><label class="opt"><input type="radio" name="q8" value="D"><span><b>D.</b> 跑</span></label></div></div>
+<div class="q" data-req="q9"><div class="stem"><span class="n">9.</span>妈妈在厨房______饭。</div><div class="opts"><label class="opt"><input type="radio" name="q9" value="A"><span><b>A.</b> 吃</span></label><label class="opt"><input type="radio" name="q9" value="B"><span><b>B.</b> 做</span></label><label class="opt"><input type="radio" name="q9" value="C"><span><b>C.</b> 喝</span></label><label class="opt"><input type="radio" name="q9" value="D"><span><b>D.</b> 看</span></label></div></div>
+<div class="q" data-req="q10"><div class="stem"><span class="n">10.</span>明天有考试,今天晚上我要______。</div><div class="opts"><label class="opt"><input type="radio" name="q10" value="A"><span><b>A.</b> 玩</span></label><label class="opt"><input type="radio" name="q10" value="B"><span><b>B.</b> 复习</span></label><label class="opt"><input type="radio" name="q10" value="C"><span><b>C.</b> 休息</span></label><label class="opt"><input type="radio" name="q10" value="D"><span><b>D.</b> 跑步</span></label></div></div>
+<div class="q" data-req="q11"><div class="stem"><span class="n">11.</span>这本书太______了,我看不懂。</div><div class="opts"><label class="opt"><input type="radio" name="q11" value="A"><span><b>A.</b> 难</span></label><label class="opt"><input type="radio" name="q11" value="B"><span><b>B.</b> 便宜</span></label><label class="opt"><input type="radio" name="q11" value="C"><span><b>C.</b> 新</span></label><label class="opt"><input type="radio" name="q11" value="D"><span><b>D.</b> 短</span></label></div></div>
+<div class="q" data-req="q12"><div class="stem"><span class="n">12.</span>请你______一点儿说,我听不清楚。</div><div class="opts"><label class="opt"><input type="radio" name="q12" value="A"><span><b>A.</b> 快</span></label><label class="opt"><input type="radio" name="q12" value="B"><span><b>B.</b> 慢</span></label><label class="opt"><input type="radio" name="q12" value="C"><span><b>C.</b> 多</span></label><label class="opt"><input type="radio" name="q12" value="D"><span><b>D.</b> 少</span></label></div></div>
+<div class="q" data-req="q13"><div class="stem"><span class="n">13.</span>我的手机______了,你能借我打个电话吗?</div><div class="opts"><label class="opt"><input type="radio" name="q13" value="A"><span><b>A.</b> 没电</span></label><label class="opt"><input type="radio" name="q13" value="B"><span><b>B.</b> 很新</span></label><label class="opt"><input type="radio" name="q13" value="C"><span><b>C.</b> 很贵</span></label><label class="opt"><input type="radio" name="q13" value="D"><span><b>D.</b> 好看</span></label></div></div>
+<div class="q" data-req="q14"><div class="stem"><span class="n">14.</span>他家______学校很近,走五分钟就到了。</div><div class="opts"><label class="opt"><input type="radio" name="q14" value="A"><span><b>A.</b> 离</span></label><label class="opt"><input type="radio" name="q14" value="B"><span><b>B.</b> 从</span></label><label class="opt"><input type="radio" name="q14" value="C"><span><b>C.</b> 在</span></label><label class="opt"><input type="radio" name="q14" value="D"><span><b>D.</b> 到</span></label></div></div>
+<div class="q" data-req="q15"><div class="stem"><span class="n">15.</span>我们班有二十______学生。</div><div class="opts"><label class="opt"><input type="radio" name="q15" value="A"><span><b>A.</b> 本</span></label><label class="opt"><input type="radio" name="q15" value="B"><span><b>B.</b> 个</span></label><label class="opt"><input type="radio" name="q15" value="C"><span><b>C.</b> 张</span></label><label class="opt"><input type="radio" name="q15" value="D"><span><b>D.</b> 条</span></label></div></div>
+</div><div class="card"><h2>Part 2 · Grammar 语法(10 × 2 = 20)</h2><p class="mut">2A. Choose one of 了 · 过 · 着 · 的 · 得 for each blank (each used once). 选词填空,每词只用一次。</p>
+<div class="q" data-req="q16"><div class="stem"><span class="n">16.</span>我去______北京两次。</div><div class="likert"><label class="opt"><input type="radio" name="q16" value="了"><span>了</span></label><label class="opt"><input type="radio" name="q16" value="过"><span>过</span></label><label class="opt"><input type="radio" name="q16" value="着"><span>着</span></label><label class="opt"><input type="radio" name="q16" value="的"><span>的</span></label><label class="opt"><input type="radio" name="q16" value="得"><span>得</span></label></div></div>
+<div class="q" data-req="q17"><div class="stem"><span class="n">17.</span>他说汉语说______很好。</div><div class="likert"><label class="opt"><input type="radio" name="q17" value="了"><span>了</span></label><label class="opt"><input type="radio" name="q17" value="过"><span>过</span></label><label class="opt"><input type="radio" name="q17" value="着"><span>着</span></label><label class="opt"><input type="radio" name="q17" value="的"><span>的</span></label><label class="opt"><input type="radio" name="q17" value="得"><span>得</span></label></div></div>
+<div class="q" data-req="q18"><div class="stem"><span class="n">18.</span>这是我______书。</div><div class="likert"><label class="opt"><input type="radio" name="q18" value="了"><span>了</span></label><label class="opt"><input type="radio" name="q18" value="过"><span>过</span></label><label class="opt"><input type="radio" name="q18" value="着"><span>着</span></label><label class="opt"><input type="radio" name="q18" value="的"><span>的</span></label><label class="opt"><input type="radio" name="q18" value="得"><span>得</span></label></div></div>
+<div class="q" data-req="q19"><div class="stem"><span class="n">19.</span>我已经吃______早饭。</div><div class="likert"><label class="opt"><input type="radio" name="q19" value="了"><span>了</span></label><label class="opt"><input type="radio" name="q19" value="过"><span>过</span></label><label class="opt"><input type="radio" name="q19" value="着"><span>着</span></label><label class="opt"><input type="radio" name="q19" value="的"><span>的</span></label><label class="opt"><input type="radio" name="q19" value="得"><span>得</span></label></div></div>
+<div class="q" data-req="q20"><div class="stem"><span class="n">20.</span>门开______,请进。</div><div class="likert"><label class="opt"><input type="radio" name="q20" value="了"><span>了</span></label><label class="opt"><input type="radio" name="q20" value="过"><span>过</span></label><label class="opt"><input type="radio" name="q20" value="着"><span>着</span></label><label class="opt"><input type="radio" name="q20" value="的"><span>的</span></label><label class="opt"><input type="radio" name="q20" value="得"><span>得</span></label></div></div>
+<p class="mut" style="margin-top:12px">2B. Put the words in the correct order to make a sentence. 连词成句(把整句打出来)。</p>
+<div class="q" data-req="q21"><div class="stem"><span class="n">21.</span>和 / 一起 / 我 / 朋友 / 去 / 商店</div><textarea name="q21" style="min-height:34px" placeholder="→ 请输入整句 type the full sentence"></textarea></div>
+<div class="q" data-req="q22"><div class="stem"><span class="n">22.</span>汉语 / 很 / 他的 / 好</div><textarea name="q22" style="min-height:34px" placeholder="→ 请输入整句 type the full sentence"></textarea></div>
+<div class="q" data-req="q23"><div class="stem"><span class="n">23.</span>我 / 想 / 明天 / 不 / 上课</div><textarea name="q23" style="min-height:34px" placeholder="→ 请输入整句 type the full sentence"></textarea></div>
+<div class="q" data-req="q24"><div class="stem"><span class="n">24.</span>在 / 做 / 什么 / 你 / ?</div><textarea name="q24" style="min-height:34px" placeholder="→ 请输入整句 type the full sentence"></textarea></div>
+<div class="q" data-req="q25"><div class="stem"><span class="n">25.</span>每天 / 半小时 / 她 / 跑步</div><textarea name="q25" style="min-height:34px" placeholder="→ 请输入整句 type the full sentence"></textarea></div>
+</div><div class="card"><h2>Part 3 · Reading 阅读理解(8 × 2.5 = 20)</h2><h3>Passage A 短文一</h3><div class="passage">我叫阿米娜,是桑给巴尔的一名汉语老师。我在学校教二年级和四年级的学生。学生们很喜欢学汉语,但是他们觉得汉字很难。每个星期六,我去教师培训中心学习。在那里,我学会了用电脑和 AI 做练习题。现在,我的学生每个星期都做新的练习,他们的汉语越来越好了。</div>
+<div class="q" data-req="q26"><div class="stem"><span class="n">26.</span>阿米娜是做什么的?</div><div class="opts"><label class="opt"><input type="radio" name="q26" value="A"><span><b>A.</b> 学生</span></label><label class="opt"><input type="radio" name="q26" value="B"><span><b>B.</b> 汉语老师</span></label><label class="opt"><input type="radio" name="q26" value="C"><span><b>C.</b> 医生</span></label><label class="opt"><input type="radio" name="q26" value="D"><span><b>D.</b> 司机</span></label></div></div>
+<div class="q" data-req="q27"><div class="stem"><span class="n">27.</span>学生们觉得什么很难?</div><div class="opts"><label class="opt"><input type="radio" name="q27" value="A"><span><b>A.</b> 汉字</span></label><label class="opt"><input type="radio" name="q27" value="B"><span><b>B.</b> 说话</span></label><label class="opt"><input type="radio" name="q27" value="C"><span><b>C.</b> 听</span></label><label class="opt"><input type="radio" name="q27" value="D"><span><b>D.</b> 数学</span></label></div></div>
+<div class="q" data-req="q28"><div class="stem"><span class="n">28.</span>阿米娜什么时候去培训中心?</div><div class="opts"><label class="opt"><input type="radio" name="q28" value="A"><span><b>A.</b> 星期一</span></label><label class="opt"><input type="radio" name="q28" value="B"><span><b>B.</b> 星期三</span></label><label class="opt"><input type="radio" name="q28" value="C"><span><b>C.</b> 星期六</span></label><label class="opt"><input type="radio" name="q28" value="D"><span><b>D.</b> 每天</span></label></div></div>
+<div class="q" data-req="q29"><div class="stem"><span class="n">29.</span>她在培训中心学会了什么?</div><div class="opts"><label class="opt"><input type="radio" name="q29" value="A"><span><b>A.</b> 做饭</span></label><label class="opt"><input type="radio" name="q29" value="B"><span><b>B.</b> 开车</span></label><label class="opt"><input type="radio" name="q29" value="C"><span><b>C.</b> 用 AI 做练习题</span></label><label class="opt"><input type="radio" name="q29" value="D"><span><b>D.</b> 唱歌</span></label></div></div>
+<h3>Passage B 短文二</h3><div class="passage">十一月,我们学校的中四学生要参加全国汉语考试。为了帮助他们,我每天下午放学以后给他们上一个小时的课。考试有听力、阅读和写作三部分。学生们的听力比较好,但是阅读比较慢,因为他们认识的汉字不多。所以,我用 AI 给他们准备了很多阅读短文,每天读一篇。我相信,只要每天练习,他们一定能考得很好。</div>
+<div class="q" data-req="q30"><div class="stem"><span class="n">30.</span>学生们什么时候考试?</div><div class="opts"><label class="opt"><input type="radio" name="q30" value="A"><span><b>A.</b> 九月</span></label><label class="opt"><input type="radio" name="q30" value="B"><span><b>B.</b> 十月</span></label><label class="opt"><input type="radio" name="q30" value="C"><span><b>C.</b> 十一月</span></label><label class="opt"><input type="radio" name="q30" value="D"><span><b>D.</b> 十二月</span></label></div></div>
+<div class="q" data-req="q31"><div class="stem"><span class="n">31.</span>老师什么时候给学生上课?</div><div class="opts"><label class="opt"><input type="radio" name="q31" value="A"><span><b>A.</b> 早上</span></label><label class="opt"><input type="radio" name="q31" value="B"><span><b>B.</b> 中午</span></label><label class="opt"><input type="radio" name="q31" value="C"><span><b>C.</b> 放学以后</span></label><label class="opt"><input type="radio" name="q31" value="D"><span><b>D.</b> 周末</span></label></div></div>
+<div class="q" data-req="q32"><div class="stem"><span class="n">32.</span>学生们哪一部分比较弱?</div><div class="opts"><label class="opt"><input type="radio" name="q32" value="A"><span><b>A.</b> 听力</span></label><label class="opt"><input type="radio" name="q32" value="B"><span><b>B.</b> 阅读</span></label><label class="opt"><input type="radio" name="q32" value="C"><span><b>C.</b> 写作</span></label><label class="opt"><input type="radio" name="q32" value="D"><span><b>D.</b> 口语</span></label></div></div>
+<div class="q" data-req="q33"><div class="stem"><span class="n">33.</span>老师用 AI 做了什么?</div><div class="opts"><label class="opt"><input type="radio" name="q33" value="A"><span><b>A.</b> 准备阅读短文</span></label><label class="opt"><input type="radio" name="q33" value="B"><span><b>B.</b> 改作业</span></label><label class="opt"><input type="radio" name="q33" value="C"><span><b>C.</b> 打电话</span></label><label class="opt"><input type="radio" name="q33" value="D"><span><b>D.</b> 看电影</span></label></div></div>
+</div><div class="card"><h2>Part 4 · Pinyin &amp; Characters 拼音与汉字(10 × 1 = 10)</h2><p class="mut">4A. Choose the correct pinyin. 选择正确的拼音。</p>
+<div class="q" data-req="q34"><div class="stem"><span class="n">34.</span>学校</div><div class="opts"><label class="opt"><input type="radio" name="q34" value="A"><span><b>A.</b> xuéxiào</span></label><label class="opt"><input type="radio" name="q34" value="B"><span><b>B.</b> xuéxiáo</span></label><label class="opt"><input type="radio" name="q34" value="C"><span><b>C.</b> xiéxuào</span></label><label class="opt"><input type="radio" name="q34" value="D"><span><b>D.</b> xuèxiào</span></label></div></div>
+<div class="q" data-req="q35"><div class="stem"><span class="n">35.</span>老师</div><div class="opts"><label class="opt"><input type="radio" name="q35" value="A"><span><b>A.</b> lǎoshì</span></label><label class="opt"><input type="radio" name="q35" value="B"><span><b>B.</b> lāoshī</span></label><label class="opt"><input type="radio" name="q35" value="C"><span><b>C.</b> lǎoshī</span></label><label class="opt"><input type="radio" name="q35" value="D"><span><b>D.</b> láoshí</span></label></div></div>
+<div class="q" data-req="q36"><div class="stem"><span class="n">36.</span>考试</div><div class="opts"><label class="opt"><input type="radio" name="q36" value="A"><span><b>A.</b> kǎoshì</span></label><label class="opt"><input type="radio" name="q36" value="B"><span><b>B.</b> kāoshī</span></label><label class="opt"><input type="radio" name="q36" value="C"><span><b>C.</b> kǎoshí</span></label><label class="opt"><input type="radio" name="q36" value="D"><span><b>D.</b> kàoshì</span></label></div></div>
+<div class="q" data-req="q37"><div class="stem"><span class="n">37.</span>练习</div><div class="opts"><label class="opt"><input type="radio" name="q37" value="A"><span><b>A.</b> liánxī</span></label><label class="opt"><input type="radio" name="q37" value="B"><span><b>B.</b> liànxí</span></label><label class="opt"><input type="radio" name="q37" value="C"><span><b>C.</b> lìanxì</span></label><label class="opt"><input type="radio" name="q37" value="D"><span><b>D.</b> liǎnxí</span></label></div></div>
+<div class="q" data-req="q38"><div class="stem"><span class="n">38.</span>漂亮</div><div class="opts"><label class="opt"><input type="radio" name="q38" value="A"><span><b>A.</b> piāoliàng</span></label><label class="opt"><input type="radio" name="q38" value="B"><span><b>B.</b> piàoliang</span></label><label class="opt"><input type="radio" name="q38" value="C"><span><b>C.</b> piáolàng</span></label><label class="opt"><input type="radio" name="q38" value="D"><span><b>D.</b> piǎoliáng</span></label></div></div>
+<p class="mut" style="margin-top:12px">4B. Choose the correct characters. 选择正确的汉字。</p>
+<div class="q" data-req="q39"><div class="stem"><span class="n">39.</span>shíjiān</div><div class="opts"><label class="opt"><input type="radio" name="q39" value="A"><span><b>A.</b> 时间</span></label><label class="opt"><input type="radio" name="q39" value="B"><span><b>B.</b> 时候</span></label><label class="opt"><input type="radio" name="q39" value="C"><span><b>C.</b> 事件</span></label><label class="opt"><input type="radio" name="q39" value="D"><span><b>D.</b> 实践</span></label></div></div>
+<div class="q" data-req="q40"><div class="stem"><span class="n">40.</span>zhōngwén</div><div class="opts"><label class="opt"><input type="radio" name="q40" value="A"><span><b>A.</b> 中间</span></label><label class="opt"><input type="radio" name="q40" value="B"><span><b>B.</b> 中文</span></label><label class="opt"><input type="radio" name="q40" value="C"><span><b>C.</b> 重要</span></label><label class="opt"><input type="radio" name="q40" value="D"><span><b>D.</b> 钟文</span></label></div></div>
+<div class="q" data-req="q41"><div class="stem"><span class="n">41.</span>tóngxué</div><div class="opts"><label class="opt"><input type="radio" name="q41" value="A"><span><b>A.</b> 同学</span></label><label class="opt"><input type="radio" name="q41" value="B"><span><b>B.</b> 同事</span></label><label class="opt"><input type="radio" name="q41" value="C"><span><b>C.</b> 童学</span></label><label class="opt"><input type="radio" name="q41" value="D"><span><b>D.</b> 统学</span></label></div></div>
+<div class="q" data-req="q42"><div class="stem"><span class="n">42.</span>xǐhuan</div><div class="opts"><label class="opt"><input type="radio" name="q42" value="A"><span><b>A.</b> 喜欢</span></label><label class="opt"><input type="radio" name="q42" value="B"><span><b>B.</b> 洗碗</span></label><label class="opt"><input type="radio" name="q42" value="C"><span><b>C.</b> 希望</span></label><label class="opt"><input type="radio" name="q42" value="D"><span><b>D.</b> 习惯</span></label></div></div>
+<div class="q" data-req="q43"><div class="stem"><span class="n">43.</span>wèntí</div><div class="opts"><label class="opt"><input type="radio" name="q43" value="A"><span><b>A.</b> 问题</span></label><label class="opt"><input type="radio" name="q43" value="B"><span><b>B.</b> 文体</span></label><label class="opt"><input type="radio" name="q43" value="C"><span><b>C.</b> 闻题</span></label><label class="opt"><input type="radio" name="q43" value="D"><span><b>D.</b> 温提</span></label></div></div>
+</div><div class="card"><h2>Part 5 · Writing 书写(10)</h2>
+<div class="q" data-req="q44"><div class="stem"><span class="n">44.</span>Write 60–80 characters about your Chinese class: which grades you teach, how many students, what they like, what is difficult for them. Pinyin is allowed for characters you cannot type. 写 60–80 字介绍你的汉语课:你教几年级、有多少学生、他们喜欢什么、有什么困难。</div><textarea name="q44" style="min-height:170px" placeholder=""></textarea></div>
+<p class="mut">字数 Characters typed: <span id="cnt44">0</span></p></div>
+<div class="card"><h2>Part 6 · Teaching application 教学应用(10,English allowed)</h2>
+<div class="q" data-req="q45"><div class="stem"><span class="n">45.</span>(5) Your Form 2 students are learning the comparison pattern "A 比 B + adjective" (e.g. 他比我高). Write THREE practice questions you would give them, from easy to harder (e.g. fill-in, sentence-making, translation). 你的中二学生正在学"A 比 B + 形容词"。请写出三道练习题,由易到难。</div><textarea name="q45" style="min-height:170px" placeholder=""></textarea></div>
+<div class="q" data-req="q46a"><div class="stem"><span class="n">46.</span>(5) Correct the three student sentences and, in one short line each, say what the mistake is. 改正下面三个学生的错句,并用一句话说明错误。</div>
+<label class="f">(a) 我昨天去了学校在早上。</label><textarea name="q46a" style="min-height:60px" placeholder="→ correct sentence + what is wrong"></textarea>
+<label class="f">(b) 他有三个书。</label><textarea name="q46b" style="min-height:60px" placeholder="→ correct sentence + what is wrong"></textarea>
+<label class="f">(c) 我很喜欢吃苹果很多。</label><textarea name="q46c" style="min-height:60px" placeholder="→ correct sentence + what is wrong"></textarea>
+</div></div>
+<div class="card">
+  <button class="btn" id="btnSubmit" onclick="submit()">提交 Submit</button>
+  <p style="margin:10px 0 0"><button class="btn sec" onclick="clearAll()" style="font-size:14px;padding:8px">🧹 清空重填 / 下一位教师 Clear &amp; start over (next teacher)</button></p>
+  <div id="status" class="status hide"></div>
+  <div id="result" class="hide">
+    <h3>你的答案码 Your answer code</h3>
+    <p class="mut">如果上面显示上传成功,这一步是备份;如果没有网络,这一步就是提交方式。请把答案码发给 SAY。<br>If upload succeeded this is a backup; if there is no internet, this IS how you submit. Send the code to SAY.</p>
+    <div class="code" id="code"></div>
+    <p><a class="btn wa" id="wa" target="_blank" rel="noopener">📲 发到 WhatsApp · Send by WhatsApp</a></p>
+    <p><button class="btn sec" onclick="copyCode()">复制答案码 Copy code</button></p>
+    <p><a class="btn sec" id="dl">下载答案文件 Download file (.json)</a></p>
+  </div>
+</div>
+<p class="mut" style="text-align:center">SAY Foundation · SAY AI Lab · For research and training use only. 仅供研究与培训使用。答案不公布,不排名。</p>
+</div>
+<div class="bar"><span id="prog"></span><span id="timer"></span></div>
+<script>
+const FORM_ID="T0_CHN", FORM_VERSION="v1-2026-09";
+// ====== 配置(李老师填)======
+const ENDPOINT="";            // Google Apps Script 网页应用地址,形如 https://script.google.com/macros/s/XXXX/exec ;留空则只用 WhatsApp/答案码
+const WHATSAPP_NUMBER="";     // SAY 收答案的 WhatsApp 号,国际格式不带 + ,如 255777123456 ;留空则由教师自选联系人
+// ==============================
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const KEY=FORM_ID+':draft';
+let startedAt = sessionStorage.getItem(FORM_ID+':start') || new Date().toISOString();
+sessionStorage.setItem(FORM_ID+':start', startedAt);
+function collect(){
+  const a={};
+  $$('input[name],textarea[name],select[name]').forEach(el=>{
+    if(el.type==='radio'){ if(el.checked) a[el.name]=el.value; else if(!(el.name in a)) a[el.name]=a[el.name]||''; }
+    else if(el.type==='checkbox'){ a[el.name]=(a[el.name]||[]); if(el.checked) a[el.name].push(el.value); }
+    else a[el.name]=el.value.trim();
+  });
+  Object.keys(a).forEach(k=>{ if(Array.isArray(a[k])) a[k]=a[k].join('|'); });
+  return a;
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(collect())); }catch(e){} refreshBar(); }
+function restore(){
+  let d={}; try{ d=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  $$('input[name],textarea[name],select[name]').forEach(el=>{
+    const v=d[el.name]; if(v===undefined) return;
+    if(el.type==='radio'){ el.checked=(el.value===v); }
+    else if(el.type==='checkbox'){ el.checked=String(v).split('|').includes(el.value); }
+    else el.value=v;
+  });
+  paint();
+}
+function paint(){ $$('.opt').forEach(o=>{const i=o.querySelector('input'); o.classList.toggle('sel', i&&i.checked);}); }
+function refreshBar(){
+  const req=$$('[data-req]'); let done=0;
+  req.forEach(g=>{ if(isDone(g)) done++; });
+  $('#prog').innerHTML=`已答 <b>${done}</b> / ${req.length}`;
+}
+function isDone(g){
+  const name=g.dataset.req;
+  const els=$$(`[name="${name}"]`);
+  if(!els.length) return false;
+  if(els[0].type==='radio'||els[0].type==='checkbox') return els.some(e=>e.checked);
+  return els[0].value.trim().length>0;
+}
+function validate(){
+  let first=null; $$('[data-req]').forEach(g=>{ const ok=isDone(g); g.classList.toggle('miss',!ok); if(!ok&&!first) first=g; });
+  if(first){ first.scrollIntoView({behavior:'smooth',block:'center'}); return false; } return true;
+}
+function b64(str){ return btoa(String.fromCharCode(...new TextEncoder().encode(str))); }
+function buildPayload(){
+  const a=collect(); const now=new Date();
+  const p={form:FORM_ID, version:FORM_VERSION, teacher_code:a.teacher_code||'', school:a.school||'', grades:a.grades||'',
+    started_at:startedAt, submitted_at:now.toISOString(), duration_min:Math.round((now-new Date(startedAt))/60000),
+    answers:a, ua:navigator.userAgent.slice(0,80)};
+  if(typeof score==='function') p.scores=score(a);
+  return p;
+}
+async function submit(){
+  if(!validate()){ setStatus('warn','还有必答题未完成(红框处)。Some required items are missing (red boxes).'); return; }
+  const p=buildPayload(); const json=JSON.stringify(p); const code='SAY1|'+b64(json);
+  $('#code').textContent=code; $('#result').classList.remove('hide'); $('#btnSubmit').disabled=true;
+  const fname=`${FORM_ID}_${(p.teacher_code||'nocode').replace(/[^A-Za-z0-9_-]/g,'')}_${p.submitted_at.slice(0,16).replace(/[:T]/g,'-')}.json`;
+  const blob=new Blob([json],{type:'application/json'}); $('#dl').href=URL.createObjectURL(blob); $('#dl').download=fname;
+  const waText=encodeURIComponent(`${FORM_ID} ${p.teacher_code}\n${code}`);
+  $('#wa').href=(WHATSAPP_NUMBER?`https://wa.me/${WHATSAPP_NUMBER}?text=`:`https://wa.me/?text=`)+waText;
+  try{ localStorage.setItem(FORM_ID+':submitted:'+p.teacher_code, json); }catch(e){}
+  if(ENDPOINT){
+    setStatus('warn','正在上传… Uploading…');
+    try{
+      await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:json});
+      setStatus('ok','✅ 已上传到 SAY 表格。为保险,请再点下面绿色按钮把答案码发到 WhatsApp。Uploaded. As a backup, also send the code by WhatsApp.');
+    }catch(e){
+      setStatus('err','⚠️ 网络上传失败(可能没有网络)。请用下面的 WhatsApp 按钮或复制答案码发给 SAY。Upload failed — please send the code by WhatsApp.');
+    }
+  } else {
+    setStatus('warn','本页未配置在线收集地址。请点绿色按钮把答案码发到 WhatsApp,或复制后发给 SAY。Please send the code by WhatsApp.');
+  }
+  $('#result').scrollIntoView({behavior:'smooth'});
+}
+function clearAll(){ if(!confirm('清空这台设备上的答案,重新开始?Clear all answers on this device and start over?')) return; try{ localStorage.removeItem(KEY); sessionStorage.removeItem(FORM_ID+':start'); }catch(e){} location.reload(); }
+function setStatus(k,t){ const s=$('#status'); s.className='status '+k; s.textContent=t; }
+function copyCode(){ navigator.clipboard.writeText($('#code').textContent).then(()=>setStatus('ok','已复制。Copied — paste it into WhatsApp to SAY.')).catch(()=>setStatus('warn','请长按答案码手动复制。Long-press the code to copy.')); }
+document.addEventListener('change',e=>{ paint(); save(); });
+document.addEventListener('input',e=>{ save(); });
+window.addEventListener('load',()=>{ restore(); refreshBar(); if(typeof startTimer==='function') startTimer(); });
+
+
+let remain=60*60; function startTimer(){ const t=$('#timer'); const tick=()=>{ const m=Math.floor(remain/60), s=remain%60; t.textContent=`⏱ ${m}:${String(s).padStart(2,'0')}`; if(remain<=0){ t.textContent='⏱ 时间到 Time is up — 请提交 please submit'; return; } remain--; setTimeout(tick,1000); }; tick(); }
+
+function score(a){ return {writing_chars:(a.q44||'').replace(/\s/g,'').length}; }
+document.addEventListener('input',e=>{ if(e.target.name==='q44') $('#cnt44').textContent=e.target.value.replace(/\s/g,'').length; });
+
+</script></body></html>
